@@ -11,10 +11,6 @@ import com.google.gson.annotations.SerializedName;
 @Entity
 public class World extends Model {
 
-	@SerializedName("_id")
-	@Id
-    public Long id;
-
     @Column(name = "randomNumber")
     public Long randomNumber;
 

@@ -28,6 +28,7 @@ public class Application extends Controller {
     }
 
     public static void json() {
+    	// returns {"_children":{"message":{"_value":"Hello World!"}},"_nodeFactory":{}}
         final ObjectNode result = objectMapper.createObjectNode();
         result.put("message", "Hello World!");
         renderJSON(result);
@@ -45,11 +46,9 @@ public class Application extends Controller {
     	 }
     	 final List<World> worlds = new ArrayList<World>();
          final Random random = ThreadLocalRandom.current();
-    	 World world = new World();
          for (int i = 0; i < queries; ++i) {
              Long id = Long.valueOf(random.nextInt(TEST_DATABASE_ROWS) + 1);
-        	 world.id = id ;
-        	 World result = World.findById(world);
+        	 World result = World.findById(id);
         	 worlds.add(result);
          }
     	 renderJSON( worlds) ;
