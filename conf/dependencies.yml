@@ -3,3 +3,4 @@
 require:
     - play
     - org.codehaus.jackson -> jackson-mapper-asl 1.9.12
+    - mysql -> mysql-connector-java 5.1.20

@@ -6,10 +6,13 @@ import javax.persistence.Id;
 
 import play.db.jpa.Model;
 
+import com.google.gson.annotations.SerializedName;
+
 @Entity
 public class World extends Model {
 
-    @Id
+	@SerializedName("otherid")
+	@Id
     public Long id;
 
     @Column(name = "randomNumber")

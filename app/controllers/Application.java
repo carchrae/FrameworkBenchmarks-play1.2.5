@@ -45,15 +45,14 @@ public class Application extends Controller {
     	 }
     	 final List<World> worlds = new ArrayList<World>();
          final Random random = ThreadLocalRandom.current();
-         final List<F.Promise<? extends World>> promises = new ArrayList<F.Promise<? extends World>>(queries);
+    	 World world = new World();
          for (int i = 0; i < queries; ++i) {
-             //Callable<World> result = null ;
-             long id = Long.valueOf(random.nextInt(TEST_DATABASE_ROWS) + 1);
-        	 World world = World.findById(id);
-        	 worlds.add(world);
+             Long id = Long.valueOf(random.nextInt(TEST_DATABASE_ROWS) + 1);
+        	 world.id = id ;
+        	 World result = World.findById(world);
+        	 worlds.add(result);
          }
     	 renderJSON( worlds) ;
-         
     }
     /*
 	public static Result db(final Integer queries) {
