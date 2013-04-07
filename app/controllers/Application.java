@@ -36,13 +36,17 @@ public class Application extends Controller {
 		renderJSON(result);
 	}
 
-	public static void db() throws InterruptedException, ExecutionException {
-		final int queries;
-		String queryCount = params.get("queries");
-		if (StringUtils.isNotEmpty(queryCount)) {
-			queries = Integer.parseInt(queryCount);
-		} else
-			queries = 1;
+	public static void setup() {
+		// clean out the old
+		List<World> worlds = World.findAll();
+		for (World w : worlds)
+			w.delete();
+		// in with the new
+		for (long i = 0; i <= 10000; i++)
+			new World(i).save();
+	}
+
+	public static void db(final Integer queries) throws InterruptedException, ExecutionException {
 		final List<World> worlds = new ArrayList<World>();
 		Job<List<World>> job = new Job<List<World>>() {
 			public java.util.List<World> doJobWithResult() throws Exception {
@@ -59,12 +63,7 @@ public class Application extends Controller {
 		renderJSON(result);
 	}
 
-	public static void db_sync() {
-		Integer queries = 1;
-		String queryCount = params.get("queries");
-		if (StringUtils.isNotEmpty(queryCount)) {
-			queries = Integer.parseInt(queryCount);
-		}
+	public static void db_sync(Integer queries) {
 		final List<World> worlds = new ArrayList<World>();
 		for (int i = 0; i < queries; ++i) {
 			Long id = Long.valueOf(random.nextInt(TEST_DATABASE_ROWS) + 1);
