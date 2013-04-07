@@ -6,5 +6,7 @@
 # Home page
 GET     /json                           Application.json
 GET     /db                             Application.db
-GET     /db_sync                        Application.db_sync
+GET     /db_sync                        Application.dbSync
+GET     /setup                          Application.setup
+GET     /                               Application.index
 
