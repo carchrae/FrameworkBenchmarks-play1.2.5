@@ -46,7 +46,7 @@ public class Application extends Controller {
 			new World(i).save();
 	}
 
-	public static void db(final Integer queries) throws InterruptedException,
+	public static void db(final int queries) throws InterruptedException,
 			ExecutionException {
 		final List<World> worlds = new ArrayList<World>();
 		Job<List<World>> job = new Job<List<World>>() {
@@ -64,7 +64,7 @@ public class Application extends Controller {
 		renderJSON(result);
 	}
 
-	public static void dbSync(Integer queries) {
+	public static void dbSync(int queries) {
 		final List<World> worlds = new ArrayList<World>();
 		for (int i = 0; i < queries; ++i) {
 			Long id = Long.valueOf(random.nextInt(TEST_DATABASE_ROWS) + 1);
