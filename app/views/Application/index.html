@@ -1,8 +1,21 @@
 
+<h2>Plain Play</h2>
 <ul>
 <li><a href="@{Application.db(queries:100)}">DB</a></li>
 <li><a href="@{Application.dbSync(queries:100)}">DB async</a></li>
 <li><a href="@{Application.json}">JSON test</a></li>
 <li><a href="@{Application.setup}">populate db</a></li>
 </ul>
+
+<h2>Plain Play + Jackson</h2>
+<li><a href="@{Application.db(queries:100, jackson:1)}">DB</a></li>
+<li><a href="@{Application.dbSync(queries:100,jackson:1)}">DB async</a></li>
+<li><a href="@{Application.json(jackson:1)}">JSON test</a></li>
+<li><a href="@{Application.setup}">populate db</a></li>
+
+<h2>Plain Play + Jackson (writeStream)</h2>
+<li><a href="@{Application.db(queries:100, jackson:1, writeStream:1)}">DB</a></li>
+<li><a href="@{Application.dbSync(queries:100,jackson:1, writeStream:1)}">DB async</a></li>
+<li><a href="@{Application.json(jackson:1, writeStream:1)}">JSON test</a></li>
+<li><a href="@{Application.setup}">populate db</a></li>
 
