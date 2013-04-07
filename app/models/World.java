@@ -11,7 +11,7 @@ import com.google.gson.annotations.SerializedName;
 @Entity
 public class World extends Model {
 
-	@SerializedName("otherid")
+	@SerializedName("_id")
 	@Id
     public Long id;
 
