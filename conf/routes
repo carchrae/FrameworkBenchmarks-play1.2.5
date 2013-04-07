@@ -5,8 +5,11 @@
 
 # Home page
 GET     /json                           Application.json
-GET     /db                             Application.db
-GET     /db_sync                        Application.dbSync
+GET     /db                             Application.db(queries:'1')
+GET     /db_sync                        Application.dbSync(queries:'1')
 GET     /setup                          Application.setup
 GET     /                               Application.index
 
+GET     /2/json                           Application.json2
+GET     /2/json                           Application.db2
+GET     /2/json                           Application.dbSync2
